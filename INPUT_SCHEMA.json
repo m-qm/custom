@@ -30,7 +30,6 @@
       "title": "Language",
       "type": "string",
       "description": "one of the language from http://developer-tripadvisor.com/content-api/supported-languages/",
-      "default": "en_USA",
       "prefill": "en_USA / fr / es",
       "editor": "textfield"
     },

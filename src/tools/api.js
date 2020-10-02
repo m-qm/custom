@@ -130,7 +130,7 @@ async function callForAttractionList(locationId, session, limit = 10, offset = 0
 }
 
 async function callForAttractionReview(locationId, session, limit = 10, offset = 0) {
-    const url = `https://api.tripadvisor.com/api/internal/1.14/location/${locationId}/reviews?limit=${limit}&offset=${offset}`;
+    const url = `https://api.tripadvisor.com/api/internal/1.14/location/${locationId}/reviews?lang=${global.LANGUAGE}&limit=${limit}&offset=${offset}`;
 
     const response = await axios.get(
         url,
