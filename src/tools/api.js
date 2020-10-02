@@ -3,7 +3,7 @@ const axios = require('axios');
 const moment = require('moment');
 const Apify = require('apify');
 const ProxyAgent = require('proxy-agent');
-
+const { utils: { log } } = Apify;
 const { ReviewQuery } = require('./graphql-queries');
 const { LIMIT } = require('../constants');
 
@@ -112,11 +112,15 @@ function buildHotelUrl(locationId, offset) {
 }
 
 function buildAttractionsUrl(locationId) {
+  if (global.language == 'fr') {
+    return `https://www.tripadvisor.fr/Attractions-g${locationId}`;
+  } else {
     return `https://www.tripadvisor.com/Attractions-g${locationId}`;
+  }
 }
 
 async function callForAttractionList(locationId, session, limit = 10, offset = 0) {
-    const url = `https://api.tripadvisor.com/api/internal/1.14/location/${locationId}/attractions?limit=${limit}&offset=${offset}`;
+    const url = `https://api.tripadvisor.com/api/internal/1.14/location/${locationId}/attractions?lang=${global.LANGUAGE}&limit=${limit}&offset=${offset}`;
     const response = await axios.get(
         url,
         { headers: { 'X-TripAdvisor-API-Key': API_KEY, Cookie: session.getCookieString(url) }, ...getAgentOptions(session) },
