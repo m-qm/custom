@@ -26,6 +26,14 @@
       "prefill": "2019-01-01",
       "editor": "textfield"
     },
+    "language code": {
+      "title": "Language",
+      "type": "string",
+      "description": "one of the language from http://developer-tripadvisor.com/content-api/supported-languages/",
+      "default": "en_USA",
+      "prefill": "en_USA / fr / es",
+      "editor": "textfield"
+    },
     "includeRestaurants": {
       "title": "Include restaurants",
       "type": "boolean",
