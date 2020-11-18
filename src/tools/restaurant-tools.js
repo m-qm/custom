@@ -39,6 +39,7 @@ async function processRestaurant(placeInfo, client, dataset) {
         rankingPosition: placeInfo.ranking_position,
         priceLevel: placeInfo.price_level,
         category: placeInfo.ranking_category,
+        subcategory: placeInfo.ranking_subcategory,
         rating: placeInfo.rating,
         isClosed: placeInfo.is_closed,
         isLongClosed: placeInfo.is_long_closed,
